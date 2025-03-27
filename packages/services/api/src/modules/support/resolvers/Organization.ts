@@ -6,6 +6,15 @@ export const Organization: Pick<
   'supportTicket' | 'supportTickets' | 'viewerCanManageSupportTickets' | '__isTypeOf'
 > = {
   supportTickets: async (org, args, { injector }) => {
+    return {
+      edges: [],
+      pageInfo: {
+        endCursor: '',
+        hasNextPage: false,
+        hasPreviousPage: false,
+        startCursor: '',
+      }
+    };
     const response = await injector.get(SupportManager).getTickets(org.id);
 
     return {
@@ -30,6 +39,7 @@ export const Organization: Pick<
     };
   },
   supportTicket: async (org, args, { injector }) => {
+    return null;
     const ticket = await injector.get(SupportManager).getTicket(org.id, args.id);
 
     if (!ticket) {

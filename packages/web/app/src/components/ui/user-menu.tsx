@@ -210,7 +210,7 @@ export function UserMenu(props: {
                   Documentation
                 </a>
               </DropdownMenuItem>
-              {currentOrganization && env.zendeskSupport ? (
+              {currentOrganization ? (
                 <DropdownMenuItem asChild>
                   <Link
                     to="/$organizationSlug/view/support"
